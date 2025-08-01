@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: SAM Template to create DynamoDB TodoTable
+Description: SAM template provisioning a DynamoDB table for Todo app
 
 Resources:
   TodoTable:
@@ -10,11 +10,13 @@ Resources:
       PrimaryKey:
         Name: id
         Type: String
-      BillingMode: PAY_PER_REQUEST
       SSESpecification:
         Enabled: true
+      Tags:
+        Project: todo-app
+        Environment: production
 
 Outputs:
   TodoTableName:
-    Description: "Name of the DynamoDB table"
+    Description: DynamoDB table name
     Value: !Ref TodoTable
