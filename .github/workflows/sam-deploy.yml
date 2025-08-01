@@ -3,7 +3,7 @@ name: Deploy SAM DynamoDB Stack
 on:
   push:
     paths:
-      - template.yaml
+      - template.yml
       - .github/workflows/sam-deploy.yml
     branches:
       - master
