@@ -4,25 +4,10 @@ Description: SAM template provisioning a DynamoDB table for Todo app
 
 Resources:
   TodoTable:
-    Type: AWS::DynamoDB::Table
+    Type: AWS::Serverless::SimpleTable
     Properties:
       TableName: TodoTable
-      AttributeDefinitions:
-        - AttributeName: id
-          AttributeType: S
-      KeySchema:
-        - AttributeName: id
-          KeyType: HASH
-      BillingMode: PAY_PER_REQUEST
-      SSESpecification:
-        SSEEnabled: true
-      Tags:
-        - Key: Project
-          Value: todo-app
-        - Key: Environment
-          Value: production
-
-Outputs:
-  TodoTableName:
-    Description: DynamoDB table name
-    Value: !Ref TodoTable
+      PrimaryKey:
+        Name: id
+        Type: String
+      
